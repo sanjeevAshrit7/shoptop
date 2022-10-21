@@ -1,4 +1,5 @@
 import { Card, CardActionArea, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
+import Tooltip from '@mui/joy/Tooltip';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SanityClient from '../client';
@@ -45,29 +46,33 @@ function Categories() {
                 <div className='grid md:grid-cols-2 lg:gid-cols-3 gap-6'>
                     {categories?.map((category, index) => {
                         return (
-                            <Card
-                                className={'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-xl hover:border-red-800'}
-                                sx={{ }}
-                                key={index}
+                            <Tooltip                      
+                                title={`click on this to view more products under ${category.title}`}
+                                placement="top"
                             >
-                                <Link to={"/category/"+category?.title} key={category?.slug?.current}>
-                                    <CardActionArea>
-                                        <CardMedia
-                                            className={classes.media}
-                                            image={category?.image?.asset?.url}
-                                            title="Contemplative Reptile"
-                                        />
-                                        <CardContent>
-                                            <Typography gutterBottom variant='h5' component="h2">
-                                                {category?.title}
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                {category?.description}
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                </Link>
-                            </Card>
+                                <Card
+                                    className={'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-xl hover:border-red-800 my-4'}
+                                    key={index}
+                                >
+                                    <Link to={"/category/"+category?.title} key={category?.slug?.current}>
+                                        <CardActionArea>
+                                            <CardMedia
+                                                className={classes.media}
+                                                image={category?.image?.asset?.url}
+                                                title="Contemplative Reptile"
+                                            />
+                                            <CardContent>
+                                                <Typography gutterBottom variant='h5' component="h2">
+                                                    {category?.title}
+                                                </Typography>
+                                                <Typography variant="body2" color="textSecondary" component="p">
+                                                    {category?.description}
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Link>
+                                </Card>
+                            </Tooltip>
                         )
                     })}
                 </div>
