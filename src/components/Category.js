@@ -1,21 +1,21 @@
-import { Avatar, Card, CardActionArea, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
+import { Avatar, Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import SanityClient from '../client';
 
-const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 140,
-    },
-  });
+// const useStyles = makeStyles({
+//     root: {
+//       maxWidth: 345,
+//     },
+//     media: {
+//       height: 140,
+//     },
+//   });
 
 function Category() {
     const [category, setCategory] = useState([]);
     const { slug } = useParams();
-    const classes = useStyles();
+    // const classes = useStyles();
 
     useEffect(() =>{
         SanityClient.fetch(`*[_type == "product" && category._ref in *[_type=="categories" && title=="${slug}"]._id ]{
