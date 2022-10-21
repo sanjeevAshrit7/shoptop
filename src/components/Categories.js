@@ -47,7 +47,7 @@ function Categories() {
                     {categories?.map((category, index) => {
                         return (
                             <Tooltip                      
-                                title={`click on this to view more products under ${category.title}`}
+                                title={`click this see all ${category.title}`}
                                 placement="top"
                             >
                                 <Card

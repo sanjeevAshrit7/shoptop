@@ -75,7 +75,7 @@ function Category() {
                                     <CardActionArea>
                                         <CardMedia
                                             style={{}}
-                                            className={classes.media}
+                                            className={'h-60 w-full max-h-60 min-h-60 flex self-center'}
                                             image={item?.prodImage?.asset?.url}
                                             title="Contemplative Reptile"
                                         />
