@@ -1,6 +1,5 @@
 import React from 'react';
 import image from '../bg.JPG'
-import Product from './Product';
 
 function Home() {
     return (
