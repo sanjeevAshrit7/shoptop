@@ -61,7 +61,7 @@ function Product() {
                                 <Card
                                     className={
                                         isTabletOrMobile ?
-                                        'w-60 hover:w-80 hover:z-50 mx-auto bg-red-700 border-l-8 border-blue-400 hover:border-l-8 hover:border-blue-800 hover:drop-shadow-lg relative my-3':
+                                        'w-60 hover:z-50 mx-auto bg-red-700 border-l-8 border-blue-400 hover:border-l-8 hover:border-blue-800 hover:drop-shadow-lg relative my-3':
                                         'w-72 hover:w-80 hover:z-50 mx-auto bg-red-700 border-l-8 border-blue-400 hover:border-l-8 hover:border-blue-800 hover:drop-shadow-lg relative my-3'
                                     
                                     }
