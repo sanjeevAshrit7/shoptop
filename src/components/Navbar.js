@@ -109,49 +109,52 @@ function NavBar() {
                         }}
                     >
                         <div style={{width: '30vh'}} className={'bg-purple-800 h-full'}>
-                            <div className={classes.toolbar} />
+                            <div className={classes.toolbar}>
+                                <img
+                                    src={foodsAboutImg}
+                                    className="w-full rounded-2xl lg:rounded-l-xl h-25"
+                                    alt="food"
+                                />
+                            </div>
                             <Divider />
-                            <nav className="inline-flex self-center flex-1 items-center flex-col justify-center">
+                            <nav className="inline-flex self-center flex-1 items-center flex-col justify-center grid grid-cols-1 place-content-center justify-center">
                                 <NavLink
                                     to={"/"}
-                                    className={"inflex-flex items-center py-6 px-3 text-red-600 hover:text-white text-4xl font-bold tracking-widest ml-5"}
+                                    className={"inflex-flex items-center py-3 text-red-600 hover:text-white text-4xl font-bold tracking-widest text-center"}
                                 >
                                     ShopTop
                                 </NavLink>
                                 <NavLink
                                     to={"/categories"}
-                                    className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
+                                    className={"inflex-flex items-center py-3  my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive text-center"}>
                                     Categories
                                 </NavLink>
                                 <NavLink
                                     to={"/Product"}
-                                    className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}
+                                    className={"inflex-flex items-center py-3 my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive text-center"}
                                 >
                                     Products
                                 </NavLink>
                                 <NavLink
                                     to={"/vendors"}
-                                    className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
+                                    className={"inflex-flex items-center py-3 my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive text-center"}>
                                     Vendors
                                 </NavLink>
                                 <NavLink
                                     to={"/About"}
-                                    className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
+                                    className={"inflex-flex items-center py-3 text-center my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
                                     About Us
                                 </NavLink>
                                 <NavLink
-                                    className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
+                                    className={"inflex-flex items-center py-3 text-center my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
                                     Contact Us @
                                 </NavLink>
-                                <h1 className='text-white cursive py-1'>ShopTop@Bangalore.com</h1>
-                                <h1 className='text-white cursive py-1'>ShopTop@Mumbai.com</h1>
-                                <h1 className='text-white cursive py-1'>8904616217</h1>
+                                <div>
+                                    <h1 className='text-white cursive text-center'>ShopTop@Bangalore.com</h1>
+                                    <h1 className='text-white cursive text-center'>ShopTop@Mumbai.com</h1>
+                                    <h1 className='text-white cursive text-center'>8904616217</h1>
+                                </div>
                             </nav>
-                            <img
-                                src={foodsAboutImg}
-                                className="w-60 rounded-2xl lg:rounded-l-xl h-30 mt-10 ml-4 self-center"
-                                alt="food"
-                            />
                         </div>
                     </Drawer>
                 </Box>

@@ -1,5 +1,6 @@
 import { Card, CardActionArea, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import SanityClient from '../client';
 import { Loader } from '../utils/commonComponents';
@@ -17,6 +18,7 @@ function Product() {
     const [prods, setProds] = useState([]);
     const [loading, setLoading] = useState(false);
     const classes = useStyles();
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     useEffect(() => {
         setLoading(true);
@@ -58,7 +60,10 @@ function Product() {
                             return (
                                 <Card
                                     className={
+                                        isTabletOrMobile ?
+                                        'w-60 hover:w-80 hover:z-50 mx-auto bg-red-700 border-l-8 border-blue-400 hover:border-l-8 hover:border-blue-800 hover:drop-shadow-lg relative my-3':
                                         'w-72 hover:w-80 hover:z-50 mx-auto bg-red-700 border-l-8 border-blue-400 hover:border-l-8 hover:border-blue-800 hover:drop-shadow-lg relative my-3'
+                                    
                                     }
                                     sx={{}}
                                     key={index}

@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
 import Tooltip from '@mui/joy/Tooltip';
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 // import addData from '../api';
 import SanityClient from '../client';
@@ -19,6 +20,7 @@ function Categories() {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
     const classes = useStyles();
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     // const addDat = async () => {
     //     const res = await fetch('../api/addData', {
@@ -73,7 +75,11 @@ function Categories() {
                                     placement="top"
                                 >
                                     <Card
-                                        className={'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-xl hover:border-red-800 my-4'}
+                                        className={
+                                            isTabletOrMobile ?
+                                            'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-xl hover:border-red-800 my-4' :
+                                            'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-xl hover:border-red-800 my-4'
+                                        }
                                         key={index}
                                     >
                                         <Link to={"/category/" + category?.title} key={category?.slug?.current}>

@@ -1,5 +1,6 @@
 import { Avatar, Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 import SanityClient from '../client';
 import { Loader } from '../utils/commonComponents';
@@ -8,6 +9,7 @@ function Category() {
     const [category, setCategory] = useState([]);
     const [loading, setLoading] = useState(false);
     const { slug } = useParams();
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     useEffect(() => {
         setLoading(true);
@@ -59,11 +61,19 @@ function Category() {
                 <section className='container mx-auto '>
                     <h1 className='text-5xl flex justify-center cursive'>{slug}</h1>
                     <h2 className='text-lg text-gray-600 flex justify-center mb-12 my-3'>Product list</h2>
-                    <div className='grid md:grid-cols-4 lg:gid-cols-4 mx-2 gap-6'>
+                    <div
+                        className={
+                            isTabletOrMobile ?
+                            'grid grid-cols-1 mx-2 gap-4 xs:gid-cols-1' :
+                            'grid md:grid-cols-4 lg:gid-cols-4 mx-2 gap-6 xs:gid-cols-1'
+                            }
+                        >
                         {category?.map((item, index) => {
                             return (
                                 <Card
                                     className={
+                                        isTabletOrMobile ?
+                                        'w-60 hover:z-50 mx-auto hover:drop-shadow-lg hover:border-red-200 border-2 relative':
                                         'w-72 hover:w-80 hover:z-50 mx-auto hover:drop-shadow-lg hover:border-red-200 border-2 relative'
                                     }
                                     sx={{}}
