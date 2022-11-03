@@ -1,12 +1,17 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import image from '../bg.JPG'
 
 function Home() {
+
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+
     return (
         <main>
             <img src={image} alt={"Home NA"} className={"absolute object-cover w-full h-full"}/>
             <section className="relative container w-full lg:px-0 px-5 lg:w-3/4 mx-auto">
-                <div className="flex lg:flex-row flex-col justify-between">
+                <div className={isTabletOrMobile ? "flex lg:flex-row flex-col justify-between pt-10" : "flex lg:flex-row flex-col justify-between"}>
                     <div className="">
                         <h2 className="text-3xl lg:text-4xl font-bold">Hello👋</h2>
                         <p className="text-xl lg:text-2xl">What do you want?</p>
