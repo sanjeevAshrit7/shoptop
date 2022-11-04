@@ -1,9 +1,16 @@
-import { Card, CardActionArea, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
-import Tooltip from '@mui/joy/Tooltip';
 import React, { useEffect, useState } from 'react';
+import {
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia,
+    makeStyles,
+    Typography
+} from '@material-ui/core';
+import Tooltip from '@mui/joy/Tooltip';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
-// import addData from '../api';
+
 import SanityClient from '../client';
 import { Loader } from '../utils/commonComponents';
 
@@ -21,18 +28,6 @@ function Categories() {
     const [loading, setLoading] = useState(false);
     const classes = useStyles();
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-
-    // const addDat = async () => {
-    //     const res = await fetch('../api/addData', {
-    //         method: 'POST',
-    //         body: JSON.stringify({ _id: recipe?._id })
-    //     }
-    //     ).catch((error) => console.log(error))
-
-    //     const data = await res.json();
-
-    //     setLikes(data?.likes);
-    // }
 
     useEffect(() => {
         setLoading(true)

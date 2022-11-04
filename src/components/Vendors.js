@@ -1,7 +1,14 @@
-import { Avatar, List, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
+import {
+    Avatar,
+    List,
+    ListItem,
+    ListItemAvatar,
+    ListItemText
+} from '@material-ui/core';
 import SanityBlockContent from '@sanity/block-content-to-react';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+
 import SanityClient from '../client';
 import { Loader } from '../utils/commonComponents';
 
@@ -27,7 +34,6 @@ function Vendors() {
         }`).then((data) => {
             setVendors(data);
             setLoading(false);
-            // console.log('vendors', vendors)
         }).catch((error) => {
             console.log('error', error)
             setLoading(false);

@@ -1,7 +1,15 @@
-import { Avatar, Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import {
+    Avatar,
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia,
+    Typography
+} from '@material-ui/core';
 import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
+
 import SanityClient from '../client';
 import { Loader } from '../utils/commonComponents';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import foodsAboutImg from '../fg.jpg';
 
 function About() {

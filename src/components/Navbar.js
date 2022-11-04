@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
     AppBar,
     Avatar,
@@ -16,13 +17,13 @@ import {
     Toolbar,
     Typography
 } from '@material-ui/core';
-import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SocialIcon } from 'react-social-icons';
 import { useMediaQuery } from 'react-responsive';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import foodsAboutImg from '../fg.jpg';
+import {contacts, navData, navDataMini} from '../utils/commonComponents'
 
 const drawerWidth = 240;
 
@@ -118,41 +119,30 @@ function NavBar() {
                             </div>
                             <Divider />
                             <nav className="inline-flex self-center flex-1 items-center flex-col justify-center grid grid-cols-1 place-content-center justify-center">
-                                <NavLink
-                                    to={"/"}
-                                    className={"inflex-flex items-center py-3 text-red-600 hover:text-white text-4xl font-bold tracking-widest text-center"}
-                                >
-                                    ShopTop
-                                </NavLink>
-                                <NavLink
-                                    to={"/categories"}
-                                    className={"inflex-flex items-center py-3  my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive text-center"}>
-                                    Categories
-                                </NavLink>
-                                <NavLink
-                                    to={"/Product"}
-                                    className={"inflex-flex items-center py-3 my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive text-center"}
-                                >
-                                    Products
-                                </NavLink>
-                                <NavLink
-                                    to={"/vendors"}
-                                    className={"inflex-flex items-center py-3 my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive text-center"}>
-                                    Vendors
-                                </NavLink>
-                                <NavLink
-                                    to={"/About"}
-                                    className={"inflex-flex items-center py-3 text-center my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
-                                    About Us
-                                </NavLink>
-                                <NavLink
-                                    className={"inflex-flex items-center py-3 text-center my-3 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
-                                    Contact Us @
-                                </NavLink>
+                                {navDataMini.map((item) => {
+                                    if(item?.id !== 6) {
+                                        return(
+                                            <NavLink
+                                                to={item?.to}
+                                                className={item?.style}>
+                                                {item?.name}
+                                            </NavLink>
+                                        );
+                                    } else {
+                                        return(
+                                            <NavLink
+                                                className={item?.style}>
+                                                {item?.name}
+                                            </NavLink>
+                                        )
+                                    }
+                                })}
                                 <div>
-                                    <h1 className='text-white cursive text-center'>ShopTop@Bangalore.com</h1>
-                                    <h1 className='text-white cursive text-center'>ShopTop@Mumbai.com</h1>
-                                    <h1 className='text-white cursive text-center'>8904616217</h1>
+                                    {contacts?.map((item) => {
+                                        return(
+                                            <h1 key={item?.id} className={item?.style}>{item?.name}</h1>
+                                        )
+                                    })}
                                 </div>
                             </nav>
                         </div>
@@ -165,41 +155,28 @@ function NavBar() {
             <header className={"bg-purple-800"}>
                 <div className="container mx-auto flex justify-between">
                     <nav className="inline-flex self-center flex-1 ml-10">
-                        <NavLink
-                            to={"/"}
-                            className={"inflex-flex items-center py-6 px-3 mr-4 text-red-600 hover:text-white text-4xl font-bold tracking-widest"}
-                        >
-                            ShopTop
-                        </NavLink>
-                        <NavLink
-                            to={"/categories"}
-                            className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
-                            Categories
-                        </NavLink>
-                        <NavLink
-                            to={"/Product"}
-                            className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}
-                        >
-                            Products
-                        </NavLink>
-                        <NavLink
-                            to={"/vendors"}
-                            className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
-                            Vendors
-                        </NavLink>
-                        <NavLink
-                            to={"/About"}
-                            className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
-                            About Us
-                        </NavLink>
-                        <NavLink
-                            // to={"/About"}
-                            onClick={() => {
-                                setIsOpen(true);
-                            }}
-                            className={"inflex-flex items-center py-3 px-3 my-6 rounded text-red-600 hover:text-yellow-200 hover:bg-purple-400 hover:rounded-xl font-bold cursive"}>
-                            Contact Us
-                        </NavLink>
+                        {navData?.map((item, index) => {
+                            if(item?.id !== 6 ) {
+                                return(
+                                    <NavLink
+                                        key={item?.id}
+                                        to={item?.to}
+                                        className={item?.style}>
+                                        {item?.name}
+                                    </NavLink>
+                                );
+                            } else {
+                                return(
+                                    <NavLink
+                                        onClick={() => {
+                                            setIsOpen(true);
+                                        }}
+                                        className={item?.style}>
+                                        {item?.name}
+                                    </NavLink>
+                                );
+                            }})
+                        }
                     </nav>
                     <div className='inline-flex py-3 px-3 my-6 self-end'>
                         <SocialIcon url='https://twitter.com/SanjeevAshrit1' className='mr-4' target={'_blank'} fgColor={'#fff'} style={{ height: 35, width: 35 }} />
@@ -209,20 +186,17 @@ function NavBar() {
                     <Dialog onClose={handleClose} open={open}>
                         <DialogTitle className='self-center'>Contact us at</DialogTitle>
                         <List sx={{ pt: 0 }}>
-                            <ListItem autoFocus className={'bg-red-100'}>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText primary="ShopTop@Bengaluru.com" className='font-bold' />
-                            </ListItem>
-                            <ListItem autoFocus className={'bg-green-100'}>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText primary="ShopTop@Mumbai.com" className='font-bold' />
-                            </ListItem>
+                            {contacts?.map((item) => {
+                                return(
+                                    <ListItem autoFocus className={item?.id % 2 === 0 ? 'bg-red-100' : 'bg-green-100'}>
+                                        <ListItemAvatar>
+                                            <Avatar>
+                                            </Avatar>
+                                        </ListItemAvatar>
+                                        <ListItemText primary={item?.name} className='font-bold' />
+                                    </ListItem>
+                                );
+                            })}
                         </List>
                     </Dialog>
                 </div>
