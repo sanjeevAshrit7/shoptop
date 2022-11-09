@@ -81,8 +81,8 @@ function Category() {
                                 <Card
                                     className={
                                         isTabletOrMobile ?
-                                        'w-60 hover:z-50 mx-auto hover:drop-shadow-lg hover:border-red-200 border-2 relative':
-                                        'w-72 hover:w-80 hover:z-50 mx-auto hover:drop-shadow-lg hover:border-red-200 border-2 relative'
+                                        'w-60 hover:z-50 mx-auto hover:drop-shadow-2xl hover:border-red-200 border-2 relative':
+                                        'w-72 hover:z-50 mx-auto hover:drop-shadow-2xl hover:border-red-200 border-2 relative'
                                     }
                                     sx={{}}
                                     key={index}
