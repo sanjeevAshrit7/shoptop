@@ -7,7 +7,7 @@
 @tailwind utilities;
 
 .cursive {
-  font-family: "Amatic Sc", cursive;
+  font-family: 'Amatic Sc', cursive;
   font-weight: 700;
 }
 
