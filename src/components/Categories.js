@@ -72,8 +72,8 @@ function Categories() {
                                     <Card
                                         className={
                                             isTabletOrMobile ?
-                                            'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-2xl hover:border-red-800 my-4' :
-                                            'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-2xl hover:border-red-800 my-4'
+                                                'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-2xl hover:border-red-800 my-4' :
+                                                'container mx-auto bg-red-700 border-l-8 border-blue-900 hover:drop-shadow-2xl hover:border-red-800 my-4'
                                         }
                                         key={index}
                                     >

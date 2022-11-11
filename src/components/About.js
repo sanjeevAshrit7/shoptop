@@ -1,8 +1,19 @@
 import React from 'react';
+import { Carousel } from 'antd';
+// import 'antd/dist/antd.less'; // or 'antd/dist/antd.css'
+import 'antd/dist/antd.min.css'
 
 import foodsAboutImg from '../fg.jpg';
+import { useMediaQuery } from 'react-responsive';
 
 function About() {
+
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+
+    const afterChange = (current) => {
+        console.log('current', current)
+    }
+
     return (
         <section className="container w-full lg:px-0 px-5 lg:w-3/4 mx-auto min-h-screen">
             <div className="mt-16">
@@ -38,6 +49,53 @@ function About() {
                         ⭐⭐⭐
                     </div>
                 </div>
+                {!isTabletOrMobile &&
+                    <Carousel
+                        afterChange={afterChange}
+                        autoplay
+                        className={isTabletOrMobile ?
+                            'flex w-60 container rounded-full my-10' :
+                            'flex flex-wrap rounded-full items-stretch my-10 '
+                        }
+                    >
+                        <div className='text-justify h-40 bg-purple-200 rounded-3xl px-10 py-10'>
+                            <span className='text-justify text-sm font-bold'>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </span>
+                        </div>
+                        <div className='text-justify h-40 bg-green-200 rounded-3xl px-10 py-10'>
+                            <span className='text-justify text-sm font-bold'>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </span>
+                        </div>
+                        <div className='text-justify h-40 bg-pink-200 rounded-3xl px-10 py-10'>
+                            <span className='text-justify text-sm font-bold'>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </span>
+                        </div>
+                        <div className='text-justify h-40 bg-blue-200 rounded-3xl px-10 py-10'>
+                            <span className='text-justify text-sm font-bold'>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </span>
+                        </div>
+                    </Carousel>
+                }
             </div>
         </section>
     )
