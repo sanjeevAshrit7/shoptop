@@ -153,7 +153,7 @@ function NavBar() {
     } else {
         return(
             <header className={"bg-purple-800"}>
-                <div className="container mx-auto flex justify-between">
+                <div className="container mx-auto flex justify-center">
                     <nav className="inline-flex self-center flex-1 ml-10">
                         {navData?.map((item, index) => {
                             if(item?.id !== 6 ) {

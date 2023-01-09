@@ -67,7 +67,7 @@ function Categories() {
                             return (
                                 <Tooltip
                                     title={`click this see all ${category.title}`}
-                                    placement="top"
+                                    placement='top-end'
                                 >
                                     <Card
                                         className={

@@ -1,10 +1,13 @@
 import React from 'react';
-import { Carousel } from 'antd';
+import { Carousel, } from 'antd'; // Layout, Menu, Breadcrumb,
 // import 'antd/dist/antd.less'; // or 'antd/dist/antd.css'
 import 'antd/dist/antd.min.css'
 
 import foodsAboutImg from '../fg.jpg';
 import { useMediaQuery } from 'react-responsive';
+// import { Content, Header } from 'antd/lib/layout/layout';
+// import Sider from 'antd/lib/layout/Sider';
+// import { LaptopOutlined, NotificationsOutlined, VerifiedUserOutlined } from '@material-ui/icons';
 
 function About() {
 
